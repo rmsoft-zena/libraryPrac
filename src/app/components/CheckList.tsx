@@ -93,12 +93,12 @@ export const useCheckListStore = create<State & Action>((set) => ({
   resetCheckList: () =>
     set((state) => ({
       ...state,
-      checkList: { ...initialForm },
+      checkList: { ...state.checkList, ...initialForm },
     })),
 }));
 
 export default function CheckList() {
-  const { setCheckList, resetCheckList } = useCheckListStore();
+  const { setCheckList, resetCheckList } = useCheckListStore((state) => state);
   const { register, watch, handleSubmit, reset } = useForm();
 
   useEffect(() => {
@@ -107,8 +107,8 @@ export default function CheckList() {
   }, [watch]);
 
   const resetValues = () => {
-    // reset(() => ({ checkList: initialForm }));
-    () => resetCheckList();
+    reset();
+    resetCheckList();
   };
 
   const onSubmit: SubmitHandler<FormValues> = (data) =>
