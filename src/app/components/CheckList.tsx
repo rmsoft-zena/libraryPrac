@@ -135,12 +135,16 @@ export default function CheckList() {
           </div>
         ))}
         <button
+          type="button"
           className="w-full block bg-zinc-200 py-1 rounded-sm"
           onClick={resetValues}
         >
           Reset
         </button>
-        <button className="bg-amber-500 px-2 py-1 rounded-md font-bold text-white my-3">
+        <button
+          type="submit"
+          className="bg-amber-500 px-2 py-1 rounded-md font-bold text-white my-3"
+        >
           구매하기
         </button>
       </form>
