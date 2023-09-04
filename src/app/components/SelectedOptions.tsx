@@ -1,6 +1,6 @@
 "use client";
+import { useCheckListStore } from "@/store/checkListStore";
 import React from "react";
-import { useCheckListStore } from "./CheckList";
 
 export default function SelectedOptions() {
   const { checkList } = useCheckListStore();
